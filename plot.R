@@ -5,7 +5,7 @@ clean <- read_csv("SEAASEAN_clean.csv")
 
 # format date ####
 clean <- clean |>
-  filter(protime != "null" & subtype != "null") |>
+  filter(!is.na(protime) & !is.na(subtype)) |>
   mutate(
     protime = as.Date(protime),
     subtype = replace(subtype, subtype == "区域国别学和国际问题研究", "区域国别学"),

@@ -1,6 +1,6 @@
 # load packages and data ####
 library(tidyverse)
-raw <- read_csv("SEAASEAN_raw.csv") # from https://github.com/SEASocFund/socFundScrapy/blob/main/data_formatted.csv
+raw <- read_csv("https://raw.githubusercontent.com/SEASocFund/socFundScrapy/refs/heads/main/SEAASEAN.csv")
 
 # merge keywords and remove duplicates ####
 clean <- raw |> 
