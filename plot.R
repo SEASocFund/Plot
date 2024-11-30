@@ -1,6 +1,6 @@
 # load cleaned data ####
 library(tidyverse)
-# setwd("d:/OneDrive - London School of Economics/Desktop/SocFund/Plot")
+# setwd("d:/OneDrive - London School of Economics/Desktop/SocFund/Plot") # change to your working directory
 clean <- read_csv("SEAASEAN_clean.csv")
 
 # format date ####
@@ -26,7 +26,7 @@ plotData |>
   theme_bw(base_family = "Microsoft YaHei", # change to another font if needed
            base_size = 12) +
   labs(x = "年份", y = "数量", fill = "学科")
-#ggsave("plot.pdf", width = 8, height = 5)
+# ggsave("output/plot.pdf", width = 8, height = 5, device = cairo_pdf) # save as pdf
 
 # plot with 1991 (东盟关系) ####
 labelFunc <- function(x) {
@@ -42,3 +42,4 @@ plotData |>
            base_size = 12) +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust= 1))+
   labs(x = "年份", y = "数量", fill = "学科")
+#ggsave("output/plot1991.pdf", width = 12, height = 5, device = cairo_pdf) # save as pdf
