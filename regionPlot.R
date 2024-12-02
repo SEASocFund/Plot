@@ -13,7 +13,7 @@ clean <- clean |>
     provloc = replace(provloc, provloc == "党校", "中央"),
     provloc = replace(provloc, provloc == "湖南省", "湖南"),
     provloc = replace(provloc, provloc == "广西南宁", "广西"),
-    provloc = replace(provloc, provloc == "军队系统", "军队"),
+    provloc = replace(provloc, provloc == "军队系统", "军队")
   )
 
 # count provloc by year ####
