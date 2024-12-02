@@ -19,6 +19,14 @@ plotData <- clean |>
   group_by(year, subtype) |>
   count()
 
+plotDataSummary <- plotData |>
+  group_by(subtype) |>
+  summarise(n = sum(n)) |>
+  arrange(desc(n))
+
+plotData <- plotData |>
+  mutate(subtype = fct_relevel(subtype, plotDataSummary$subtype)) # reorder provloc by sum of n
+  
 # plain plot ####
 plotData |>
   ggplot(aes(x = year, y = n, fill = subtype)) +
@@ -26,7 +34,7 @@ plotData |>
   theme_bw(base_family = "Microsoft YaHei", # change to another font if needed
            base_size = 12) +
   labs(x = "年份", y = "数量", fill = "学科")
-# ggsave("output/plot.pdf", width = 8, height = 5, device = cairo_pdf) # save as pdf
+# ggsave("output/disciplinePlot.pdf", width = 8, height = 5, device = cairo_pdf) # save as pdf
 
 # plot with 1991 (东盟关系) ####
 labelFunc <- function(x) {
@@ -42,4 +50,4 @@ plotData |>
            base_size = 12) +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust= 1))+
   labs(x = "年份", y = "数量", fill = "学科")
-#ggsave("output/plot1991.pdf", width = 12, height = 5, device = cairo_pdf) # save as pdf
+#ggsave("output/disciplinePlot1991.pdf", width = 12, height = 5, device = cairo_pdf) # save as pdf
