@@ -1,7 +1,7 @@
 # load cleaned data ####
 library(tidyverse)
 # setwd("d:/OneDrive - London School of Economics/Desktop/SocFund/Plot") # change to your working directory
-clean <- read_csv("SEAASEAN_clean.csv")
+clean <- read_csv("https://raw.githubusercontent.com/SEASocFund/socFundScrapy/106f9ca271a94aa392ddbacbaab9e8bbe063c355/SEAASEAN_clean.csv")
 
 # format date ####
 clean <- clean |>
